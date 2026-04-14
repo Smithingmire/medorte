@@ -19,9 +19,15 @@ connectDB();
 
 const app = express();
 const server = http.createServer(app);
+const allowedOrigins = [
+  "https://medorte.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:3000"
+];
+
 const io = new Server(server, {
-   cors: {
-    origin: "https://medorte.vercel.app",
+  cors: {
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -29,8 +35,9 @@ const io = new Server(server, {
 
 // Middleware
 app.use(cors({
-  origin: ["https://medorte.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
