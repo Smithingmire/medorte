@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../utils/api';
+import API_URL from '../../api';
 import { Card, CardContent } from '../../components/ui/Card';
 import { ClipboardList, Calendar, User, FileText } from 'lucide-react';
 import { toast } from 'react-toastify';
@@ -96,7 +97,7 @@ const PatientPrescriptions = () => {
 
                   {px.documentUrl && (
                     <div className="pt-4 mt-4 border-t border-[#E5E7EB]">
-                      <a href={`http://localhost:5000${px.documentUrl}`} target="_blank" rel="noreferrer" className="text-[#3A86FF] hover:text-[#2b6fdc] text-sm font-medium flex items-center gap-1.5 transition-colors">
+                      <a href={`${API_URL}${px.documentUrl}`} target="_blank" rel="noreferrer" className="text-[#3A86FF] hover:text-[#2b6fdc] text-sm font-medium flex items-center gap-1.5 transition-colors">
                         <FileText className="w-4 h-4" /> View Original Prescription PDF
                       </a>
                     </div>

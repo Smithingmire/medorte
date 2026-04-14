@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useAuthStore } from '../../store/useAuthStore';
 import io from 'socket.io-client';
 import api from '../../utils/api';
+import API_URL from '../../api';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
@@ -16,8 +17,7 @@ const PatientChat = () => {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    const socketURL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000';
-    socketRef.current = io(socketURL);
+    socketRef.current = io(API_URL);
     
     socketRef.current.on('connect', () => {
       if (user?._id) {

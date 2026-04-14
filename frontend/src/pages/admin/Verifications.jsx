@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import api from '../../utils/api';
+import API_URL from '../../api';
 import { toast } from 'react-toastify';
 import { Download } from 'lucide-react';
 
@@ -51,7 +52,7 @@ const Verifications = () => {
 
               {doc.degreeCertificateUrl && (
                 <a 
-                  href={`http://localhost:5000${doc.degreeCertificateUrl}`} 
+                  href={`${API_URL}${doc.degreeCertificateUrl}`} 
                   target="_blank" 
                   rel="noreferrer"
                   className="w-full inline-flex items-center justify-center px-4 py-2 border border-[#E5E7EB] text-sm font-medium rounded-md text-[#1F2933] bg-white hover:bg-gray-50 mb-4 transition-colors duration-200"

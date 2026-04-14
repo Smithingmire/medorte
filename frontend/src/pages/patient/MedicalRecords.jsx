@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../utils/api';
+import API_URL from '../../api';
 import { Card, CardContent } from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
@@ -83,7 +84,7 @@ const MedicalRecords = () => {
                 Uploaded by: {record.uploadedBy?.name} ({record.uploadedBy?.role})
               </div>
               <a 
-                href={`http://localhost:5000${record.fileUrl}`} 
+                href={`${API_URL}${record.fileUrl}`} 
                 target="_blank" 
                 rel="noreferrer"
                 className="w-full inline-flex items-center justify-center px-4 py-2 border border-[#E5E7EB] text-sm font-medium rounded-md text-[#1F2933] bg-white hover:bg-gray-50 transition-colors duration-200"
