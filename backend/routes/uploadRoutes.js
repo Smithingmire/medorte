@@ -42,6 +42,9 @@ const upload = multer({
 });
 
 router.post('/', upload.single('document'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ message: 'No file uploaded' });
+  }
   res.json({ fileUrl: `/${req.file.path.replace(/\\/g, '/')}` });
 });
 
