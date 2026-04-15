@@ -43,7 +43,7 @@ function App() {
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         <Route path="/patient/*" element={
-          <ProtectedRoute allowedRoles={['Patient', 'Doctor']}>
+          <ProtectedRoute allowedRoles={['Patient']}>
             <DashboardLayout roleView="Patient">
               <Routes>
                 <Route path="dashboard" element={<PatientDashboard />} />
